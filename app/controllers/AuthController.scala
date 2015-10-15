@@ -2,7 +2,7 @@ package controllers
 
 import play.api.data._
 import play.api.data.Forms._
-import play.api.mvc.{Action, Cookie, Controller}
+import play.api.mvc.{Results, Action, Cookie, Controller}
 
 import services.AuthenticationService
 
@@ -33,6 +33,22 @@ object AuthController extends Controller {
       dataTuple => {
         val (login, password) = dataTuple
         AuthenticationService.authenticate(login, password).map {
+          case Some(token) =>
+            Redirect("/").withCookies(Cookie("token", token, Some(999999999), "/"))
+          case None =>
+            Redirect(routes.AuthController.login()).flashing("error" -> "incorrect_credentials")
+        }
+      }
+    )
+  }
+
+  def signUp() = Action.async { implicit request =>
+    loginForm.bindFromRequest().fold(
+      error =>
+        Future.successful(Results.BadRequest),
+      dataTuple => {
+        val (login, password) = dataTuple
+        AuthenticationService.register(login, password).map {
           case Some(token) =>
             Redirect("/").withCookies(Cookie("token", token, Some(999999999), "/"))
           case None =>
