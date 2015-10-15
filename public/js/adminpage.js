@@ -26,9 +26,9 @@ function addProduct() {
         data: getProductJSON(),
         success: function(result) {
             renderProduct(result);
+            showProducts();
         }
     })
-    showProducts();
 }
 
 function updateProduct() {
@@ -43,9 +43,9 @@ function updateProduct() {
         data: getProductJSON(),
         success: function(result) {
             renderProduct(result);
+            showProducts();
         }
     })
-    showProducts();
 }
 
 function showProducts() {
