@@ -42,7 +42,7 @@
                 <div class="cell">
                     <div class="cell-inner">
                         <div class="wrapper-md">
-                            <form role="form" id="adminForm">
+                            <form role="form" id="adminForm" style="display: none;">
                                 <input type="submit" id="submitbutton" style="display: none">
                             <div class="col-sm-6">
                                 <div class="panel panel-default">
@@ -161,31 +161,12 @@
                                     </div>
                                     <div class="panel-body">
                                         <div style="height:246px" id="testPlot1"></div>
-                                        <script>
+<!--                                        <script>
 
               $(function() {
-              var data = [
-                { data: 3, label:'http://google.com' },
-                { data: 4, label:'http://habr.ru' }
-              ];
 
-              var options = {
-                grid: {
-                  hoverable: true
-                },
-                colors: ['#23b7e5', '#7266ba'],
-                tooltip: true,
-                tooltipOpts: { content: "%y.0",  defaultTheme: false, shifts: { x: 10, y: -25 } },
-                series: {
-                  pie: {
-                    show: true
-                  }
-                }
-              };
-
-              $('#testPlot1').plot(data, options);
             })
-            </script>
+            </script>-->
                                     </div>
                                 </div>
                             </div>
@@ -197,7 +178,7 @@
                                     </div>
                                     <div class="panel-body">
                                         <div style="height:246px" id="testPlot2"></div>
-                                        <script>
+                                      <!--  <script>
 
               $(function() {
               var data = [
@@ -221,7 +202,7 @@
 
               $('#testPlot2').plot(data, options);
             })
-            </script>
+            </script>-->
                                     </div>
                                 </div>
                             </div>
@@ -233,7 +214,7 @@
                                     </div>
                                     <div class="panel-body">
                                         <div style="height:246px" id="testPlot"></div>
-                                        <script>
+                                        <!--<script>
             $(function() {
               var data = [
                 { data: [ [1444780800000, 7], [1444867200000, 3] ], label:'Views', lines: { show: true, lineWidth: 1, fill: true}, points: { show: true, radius: 1}, splines: { show: true, tension: 0.4, lineWidth: 1, fill: 0.8 } },
@@ -257,7 +238,7 @@
 
               $('#testPlot').plot(data, options);
             })
-            </script>
+            </script>-->
                                     </div>
                                 </div>
                             </div>

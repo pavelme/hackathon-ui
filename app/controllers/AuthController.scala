@@ -38,7 +38,7 @@ object AuthController extends Controller {
         val (login, password) = dataTuple
         AuthenticationService.authenticate(login, password).map {
           case Some(token) =>
-            Redirect("/").withCookies(Cookie("token", token, Some(999999999), "/"))
+            Redirect(routes.AdminController.products()).withCookies(Cookie("token", token, Some(999999999), "/"))
           case None =>
             Redirect(routes.AuthController.login()).flashing("error" -> "incorrect_credentials")
         }
