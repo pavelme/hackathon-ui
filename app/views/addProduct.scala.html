@@ -5,8 +5,8 @@
 @import play.api.i18n.Messages.Implicits._
 
 
-@main("Todo list") {
-    <h2>Add a new task</h2>
+@main("Add product") {
+    <h1>Add product</h1>
     @form(routes.ProductsController.getProducts) {
 
         @inputText(redirectionForm("Product url"))
