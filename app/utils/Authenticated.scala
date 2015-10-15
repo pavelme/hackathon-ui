@@ -14,7 +14,7 @@ object Authenticated extends ActionBuilder[AuthenticatedRequest] {
         // todo: get user by token
         block(new AuthenticatedRequest(User(0, "", "", 0, 0), request))
       }.getOrElse {
-        Future.successful(Results.Redirect("/loginpage"))
+        Future.successful(Results.Redirect("/auth/login"))
       }
     }
 

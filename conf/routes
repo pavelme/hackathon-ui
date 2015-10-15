@@ -3,14 +3,18 @@
 # ~~~~
 
 # Home page
-GET     /                                       controllers.ProductsController.products
-GET     /addProduct                             controllers.ProductsController.sendProductUrl
-GET     /addProduct2                            controllers.ProductsController.getProducts
-GET     /products-test                          controllers.ProductsController.productsTest
+GET         /                      controllers.ProductsController.products
+GET         /addProduct            controllers.ProductsController.sendProductUrl
+GET         /addProduct2           controllers.ProductsController.getProducts
+GET         /products-test         controllers.ProductsController.productsTest
 
-GET         /auth/login         controllers.AuthController.login
-POST        /auth/login        controllers.AuthController.signIn
+GET         /auth/login            controllers.AuthController.login
+POST        /auth/login            controllers.AuthController.signIn
 GET         /auth/register         controllers.AuthController.register
-POST         /auth/register         controllers.AuthController.signUp
+POST        /auth/register         controllers.AuthController.signUp
+GET         /auth/logout           controllers.AuthController.logout
 
-GET  /assets/*file        controllers.Assets.at(path="/public", file)
+GET         /admin/products        controllers.AdminController.products
+GET         /admin/promote         controllers.AdminController.promoting
+
+GET         /assets/*file          controllers.Assets.at(path="/public", file)

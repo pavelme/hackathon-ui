@@ -1,0 +1,38 @@
+@()(implicit request: utils.AuthenticatedRequest[_])
+
+@Admin.adminPage {
+    <div class="col">
+        <div class="vbox">
+            <div class="row-row">
+                <div class="cell">
+                    <div class="cell-inner">
+                        <div class="wrapper-md">
+
+                            <div class="col-sm-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading font-bold">You want to sell ads from our network? Just install our banner on you store and be in profit!</div>
+                                    <div class="panel-body">
+                                        <div class="form-group">
+                                            <label>Width</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Height</label>
+                                            <input type="text" class="form-control">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Banner code</label>
+                                            <textarea class="form-control" disabled style="height: 300px"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /column -->
+}

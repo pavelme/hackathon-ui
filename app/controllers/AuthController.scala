@@ -2,7 +2,7 @@ package controllers
 
 import play.api.data._
 import play.api.data.Forms._
-import play.api.mvc.{Results, Action, Cookie, Controller}
+import play.api.mvc._
 
 import services.AuthenticationService
 
@@ -17,6 +17,10 @@ object AuthController extends Controller {
 
   def register() = Action { implicit request =>
     Ok(views.html.Auth.register())
+  }
+
+  def logout() = Action { implicit request =>
+    Redirect(routes.AuthController.login()).discardingCookies(DiscardingCookie("token"))
   }
 
   def loginForm = Form(

@@ -1,0 +1,285 @@
+@()(implicit request: utils.AuthenticatedRequest[_])
+
+@Admin.adminPage {
+    <!-- column -->
+    <div class="col w lter b-r" ng-controller="CustomTabController">
+        <div class="vbox">
+            <div class="wrapper b-b">
+                <div class="font-thin h4">Your products</div>
+            </div>
+            <div class="nav-tabs-alt">
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active">
+                        <a data-target="#tab-1" role="tab" data-toggle="tab">All</a>
+                    </li>
+                    <li >
+                        <a data-target="#tab-2" role="tab" data-toggle="tab">Promote</a>
+                    </li>
+                    <li >
+                        <a data-target="#tab-3" role="tab" data-toggle="tab">Cross</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="row-row">
+                <div class="cell scrollable hover">
+                    <div class="cell-inner">
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab-1">
+                                <ul style="list-style: none; padding: 0px">
+                                    <li>
+                                        <a href="#" style="display: block; padding: 8px 10px; background-color: #dee5e7; border-bottom: 1px solid #dee5e7">
+                                            <img src="img/a0.jpg" class="thumb-sm img-circle">
+                                            <span style="margin-left: 10px; position: relative; top: 2px;">Product title</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" style="display: block; padding: 8px 10px; border-bottom: 1px solid #dee5e7">
+                                            <img src="img/a0.jpg" class="thumb-sm img-circle">
+                                            <span style="margin-left: 10px; position: relative; top: 2px;">Product title</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane" id="tab-2">
+                                <div class="wrapper-md">
+                                    Month report
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab-3">
+                                <div class="wrapper-md">
+                                    Year report
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /column -->
+
+    <div class="col">
+        <div class="vbox">
+            <div class="row-row">
+                <div class="cell">
+                    <div class="cell-inner">
+                        <div class="wrapper-md">
+
+                            <div class="col-sm-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading font-bold">Information</div>
+                                    <div class="panel-body">
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <label>WIX product url</label>
+                                                <input type="text" class="form-control" placeholder="Enter email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Category</label>
+                                                <select class="form-control"></select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Country</label>
+                                                <select class="form-control"></select>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-success">Save</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading font-bold">Product description</div>
+                                    <div class="panel-body">
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <label>Title</label>
+                                                <input type="text" class="form-control" placeholder="Enter email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Image url</label>
+                                                <input type="text" class="form-control" placeholder="Enter email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Price</label>
+                                                <input type="text" class="form-control" placeholder="Enter email">
+                                            </div>
+
+                                            <button type="submit" class="btn btn-success">Save</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading font-bold">
+                                        <span>Promoting</span>
+                                        <label class="i-switch bg-info m-t-xs m-r" style="float: right; position: relative; top: -4px;">
+                                            <input type="checkbox" checked="">
+                                            <i></i>
+                                        </label>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form role="form">
+                                            <div class="form-group">
+                                                <label>Click price</label>
+                                                <input type="text" class="form-control" placeholder="Enter email">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Campaign price</label>
+                                                <input type="text" class="form-control" placeholder="Enter email">
+                                            </div>
+
+                                            <button type="submit" class="btn btn-success">Save</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading font-bold">
+                                        <span>Cross sale</span>
+                                        <label class="i-switch bg-info m-t-xs m-r" style="float: right; position: relative; top: -4px;">
+                                            <input type="checkbox" checked="">
+                                            <i></i>
+                                        </label>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form role="form">
+                                            <p>
+                                                About cross sale
+                                            </p>
+                                            <p>
+                                                About cross sale
+                                            </p>
+                                            <div class="form-group">
+                                                <label>iframe</label>
+                                                <textarea class="form-control" disabled></textarea>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-success">Save</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading font-bold">
+                                        <span>Views sources</span>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div style="height:246px" id="testPlot1"></div>
+                                        <script>
+
+              $(function() {
+              var data = [
+                { data: 3, label:'http://google.com' },
+                { data: 4, label:'http://habr.ru' }
+              ];
+
+              var options = {
+                grid: {
+                  hoverable: true
+                },
+                colors: ['#23b7e5', '#7266ba'],
+                tooltip: true,
+                tooltipOpts: { content: "%y.0",  defaultTheme: false, shifts: { x: 10, y: -25 } },
+                series: {
+                  pie: {
+                    show: true
+                  }
+                }
+              };
+
+              $('#testPlot1').plot(data, options);
+            })
+            </script>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading font-bold">
+                                        <span>Clicks sources</span>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div style="height:246px" id="testPlot2"></div>
+                                        <script>
+
+              $(function() {
+              var data = [
+                { data: 3, label:'http://google.com' },
+                { data: 4, label:'http://habr.ru' }
+              ];
+
+              var options = {
+                grid: {
+                  hoverable: true
+                },
+                colors: ['#23b7e5', '#7266ba'],
+                tooltip: true,
+                tooltipOpts: { content: "%y.0",  defaultTheme: false, shifts: { x: 10, y: -25 } },
+                series: {
+                  pie: {
+                    show: true
+                  }
+                }
+              };
+
+              $('#testPlot2').plot(data, options);
+            })
+            </script>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading font-bold">
+                                        <span>Views and clicks</span>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div style="height:246px" id="testPlot"></div>
+                                        <script>
+            $(function() {
+              var data = [
+                { data: [ [1444780800000, 7], [1444867200000, 3] ], label:'Views', lines: { show: true, lineWidth: 1, fill: true}, points: { show: true, radius: 1}, splines: { show: true, tension: 0.4, lineWidth: 1, fill: 0.8 } },
+                { data: [ [1444780800000, 3], [1444867200000, 5] ], label:'Clicks', lines: { show: true, lineWidth: 1, fill: true}, points: { show: true, radius: 1}, splines: { show: true, tension: 0.4, lineWidth: 1, fill: 0.8 } }
+              ];
+
+              var options = {
+                colors: ['#23b7e5', '#7266ba'],
+                series: { shadowSize: 3 },
+                xaxis:{
+                  font: { color: '#a1a7ac' },
+                  mode: "time",
+                  timeformat: "%d/%m/%Y",
+                  minTickSize: [1, "day"]
+                },
+                yaxis:{ font: { color: '#a1a7ac' } },
+                grid: { hoverable: true, clickable: true, borderWidth: 0},
+                tooltip: true,
+                tooltipOpts: { content: '%y.0 %s',  defaultTheme: false, shifts: { x: 10, y: -25 } }
+              };
+
+              $('#testPlot').plot(data, options);
+            })
+            </script>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

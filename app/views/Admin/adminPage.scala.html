@@ -1,0 +1,107 @@
+@(content: Html)(implicit request: utils.AuthenticatedRequest[_])
+
+@wrapper {
+    <div class="app">
+            <!-- aside -->
+        <aside id="aside" class="app-aside hidden-xs bg-dark">
+            <a href="@routes.AdminController.products()" class="navbar-brand text-lt">
+                <span class="hidden-folded m-l-xs">wixCrossSale</span>
+            </a>
+            <div class="aside-wrap">
+                <div class="navi-wrap">
+                        <!-- nav -->
+                    <nav ui-nav class="navi clearfix">
+                        <ul class="nav">
+                            <li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
+                                <span>Navigation</span>
+                            </li>
+                            <li id="productsMenu">
+                                <a href="@routes.AdminController.products()">
+                                    <b class="badge bg-info pull-right">9</b>
+                                    <i class="fa fa-shopping-cart icon text-info-lter"></i>
+                                    <span class="font-bold">Your products</span>
+                                </a>
+                            </li>
+                            <li id="promotingMenu">
+                                <a href="@routes.AdminController.promoting()">
+                                    <i class="fa fa-paper-plane icon text-info-lter"></i>
+                                    <span class="font-bold">Promoting</span>
+                                </a>
+                            </li>
+                            <li class="line dk"></li>
+                            <li>
+                                <a href="@routes.AuthController.logout()">
+                                    <i class="fa fa-sign-out icon text-info-lter"></i>
+                                    <span class="font-bold">Logout</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                        <!-- nav -->
+                        <!-- aside footer -->
+                    <div class="wrapper m-t">
+                        <div class="text-center-folded">
+                            <span class="pull-right pull-none-folded">@request.user.balance§</span>
+                            <span class="hidden-folded">Your balance</span>
+                        </div>
+                        <div class="progress progress-xxs m-t-sm dk">
+                            <div class="progress-bar progress-bar-info" style="width: 100%;">
+                            </div>
+                        </div>
+                        <div class="text-center-folded">
+                            <span class="pull-right pull-none-folded">@request.user.crossSellBalance views</span>
+                            <span class="hidden-folded">CrossSale balance</span>
+                        </div>
+                        <div class="progress progress-xxs m-t-sm dk">
+                            <div class="progress-bar progress-bar-primary" style="width: 100%;">
+                            </div>
+                        </div>
+                    </div>
+                        <!-- / aside footer -->
+                </div>
+            </div>
+        </aside>
+            <!-- / aside -->
+
+
+            <!-- content -->
+        <div id="content" class="app-content" role="main">
+            <div class="app-content-body app-content-full" style="top:0px;">
+
+
+                    <!-- hbox layout -->
+                <div class="hbox hbox-auto-xs bg-light " ng-init="
+  app.settings.asideFolded = true;
+  app.settings.asideFixed = true;
+  app.settings.asideDock = false;
+  app.settings.container = false;
+  app.hideAside = false
+  ">
+
+
+                        <!-- column -->
+                    @content
+                        <!-- /column -->
+
+                </div>
+                    <!-- /hbox layout -->
+
+
+
+            </div>
+        </div>
+            <!-- /content -->
+
+            <!-- footer -->
+        <footer id="footer" class="app-footer" role="footer">
+            <div class="wrapper b-t bg-light">
+                <span class="pull-right">1.0.0 <a href ui-scroll="app" class="m-l-sm text-muted"><i class="fa fa-long-arrow-up"></i></a></span>
+                    &copy; 2015 wixCrossSale team
+            </div>
+        </footer>
+            <!-- / footer -->
+
+
+
+    </div>
+}
