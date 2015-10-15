@@ -3,7 +3,7 @@ package controllers
 import java.util.Base64
 
 import com.ning.http.client.AsyncHttpClient
-import models.{User, TokenEntity}
+import models.{ProductEntity, User, TokenEntity}
 import play.api.libs.functional.syntax._
 import play.api.libs.json.{Json, Reads, JsPath, Writes}
 
@@ -65,6 +65,20 @@ trait HttpClient extends JsonHelper {
       )
     }.asOpt
   }
+
+  def getProducts(token: String):Option[List[ProductEntity]] = {
+    val response = client
+      .prepareGet(host + "/products")
+      .addHeader("Content-Type", "application/json")
+      .addHeader("token", token)
+      .execute()
+      .get()
+      .getResponseBody("UTF-8")
+
+    println("Json.parse(response).validate[List[ProductEntity]] = " + Json.parse(response).validate[List[ProductEntity]])
+    println("Json.parse(response) = " + Json.parse(response))
+    Json.parse(response).validate[List[ProductEntity]].asOpt
+  }
 }
 
 trait JsonHelper {
@@ -95,12 +109,47 @@ trait JsonHelper {
       (JsPath \ "balance").read[Long] and
       (JsPath \ "crossSaleBalance").read[Long]
     )(UserResponse.apply _)
+
+  implicit val productWriter: Writes[ProductEntity] = (
+    (JsPath \ "id").write[Long] and
+      (JsPath \ "authorId").write[Long] and
+      (JsPath \ "category").write[String] and
+      (JsPath \ "title").write[String] and
+      (JsPath \ "productUrl").write[String] and
+      (JsPath \ "clickPrice").write[Double] and
+      (JsPath \ "campaignBudget").write[Double] and
+      (JsPath \ "viewsCount").write[Long] and
+      (JsPath \ "clicksCount").write[Long] and
+      (JsPath \ "productImage").write[String] and
+      (JsPath \ "productPrice").write[Double] and
+      (JsPath \ "isCrossSellEnabled").write[Boolean] and
+      (JsPath \ "isBannerSellingEnabled").write[Boolean] and
+      (JsPath \ "country").write[String]
+    )(unlift(ProductEntity.unapply))
+
+  implicit val productReader: Reads[ProductEntity] = (
+    (JsPath \ "id").read[Long] and
+      (JsPath \ "authorId").read[Long] and
+      (JsPath \ "category").read[String] and
+      (JsPath \ "title").read[String] and
+      (JsPath \ "productUrl").read[String] and
+      (JsPath \ "clickPrice").read[Double] and
+      (JsPath \ "campaignBudget").read[Double] and
+      (JsPath \ "viewsCount").read[Long] and
+      (JsPath \ "clicksCount").read[Long] and
+      (JsPath \ "productImage").read[String] and
+      (JsPath \ "productPrice").read[Double] and
+      (JsPath \ "isCrossSellEnabled").read[Boolean] and
+      (JsPath \ "isBannerSellingEnabled").read[Boolean] and
+      (JsPath \ "country").read[String]
+    )(ProductEntity.apply _)
 }
 
 object TestApp extends App with HttpClient {
   println(signUp("test", "123"))
   println(signIn("test", "123"))
   println(getLoggedUser("d0075bd8985441dfab9980da97399ed6"))
+//  print(getProducts("788994c56c584521b8c36827c921dcd4"))
 }
 
 case class UserResponse(id: Long, username: String, password: String, balance: Long, crossSaleBalance: Long)
