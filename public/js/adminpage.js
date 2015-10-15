@@ -6,11 +6,11 @@ function getProductJSON() {
         title: $('#title').val(),
         productImage: $('#productImage').val(),
         productPrice: parseFloat($('#productPrice').val()),
-        isBannerSellingEnabled: Boolean($('#isBannerSellingEnabled').val()),
+        isBannerSellingEnabled: $('#isBannerSellingEnabled').is(":checked"),
         clickPrice: parseFloat($('#clickPrice').val()),
         campaignBudget: parseFloat($('#campaignBudget').val()),
-        isCrossSellEnabled: Boolean($('#isCrossSellEnabled').val())
-    }
+        isCrossSellEnabled: Boolean($('#isCrossSellEnabled').is(":checked"))
+    };
     return JSON.stringify(product);
 }
 
@@ -110,12 +110,54 @@ function showProduct(id) {
 
 function renderProduct(product) {
     for(var key in product) {
-        $('#' + key).val(product[key]);
+        if(key == "isBannerSellingEnabled" || key == "isCrossSellEnabled") {
+            $('#' + key).prop('checked', product[key]);
+        } else {
+            $('#' + key).val(product[key]);
+        }
     }
+}
+
+function renderCategories() {
+    $.ajax({
+        url: "http://localhost:20000/v1/categories/",
+        type: "GET",
+        contentType: "application/json",
+        beforeSend: function (request)
+        {
+            request.setRequestHeader("Token", $('#token').val());
+        },
+        success: function(result) {
+            $('#category').empty();
+            for(var i in result) {
+                $('#category').append("<option>" + result[i] + "</option>");
+            }
+        }
+    })
+}
+
+function renderCountries() {
+    $.ajax({
+        url: "http://localhost:20000/v1/countries/",
+        type: "GET",
+        contentType: "application/json",
+        beforeSend: function (request)
+        {
+            request.setRequestHeader("Token", $('#token').val());
+        },
+        success: function(result) {
+            $('#country').empty();
+            for(var i in result) {
+                $('#country').append("<option>" + result[i] + "</option>");
+            }
+        }
+    })
 }
 
 $(function() {
 
+    renderCountries();
+    renderCategories();
     showProducts();
 
     $('#addProduct').click(function (e) {
@@ -133,6 +175,7 @@ $(function() {
             campaignBudget: "",
             isCrossSellEnabled: ""
         };
+        $('.selected_product').removeClass('selected_product');
         renderProduct(product)
     });
 
@@ -153,7 +196,6 @@ $(function() {
         e.preventDefault();
         deleteProduct($('#id').val());
     });
-
 
     $('#productsMenu').addClass("active");
 });
