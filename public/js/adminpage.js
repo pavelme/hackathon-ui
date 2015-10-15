@@ -249,7 +249,12 @@ function renderViewClickGraph(id) {
                 tooltipOpts: { content: '%y.0 %s',  defaultTheme: false, shifts: { x: 10, y: -25 } }
             };
 
-            $('#testPlot').plot(data, options);
+            if(viewsData.data.length == 0 && clicksData.data.length == 0) {
+                $('#testPlot').parents('.col-sm-12').hide();
+            } else {
+                $('#testPlot').parents('.col-sm-12').show();
+                $('#testPlot').plot(data, options);
+            }
         }
     });
 }
