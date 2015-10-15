@@ -2,6 +2,7 @@
 
 @wrapper {
     <div class="app">
+        <input type="hidden" id="token" value="@request.user.token">
             <!-- aside -->
         <aside id="aside" class="app-aside hidden-xs bg-dark">
             <a href="@routes.AdminController.products()" class="navbar-brand text-lt">

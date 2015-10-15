@@ -5,27 +5,16 @@
     <div class="col w lter b-r" ng-controller="CustomTabController">
         <div class="vbox">
             <div class="wrapper b-b">
+                <a href="#" class="fa fa-plus" style="float: right; position: relative; top: 3px" id="addProduct"></a>
                 <div class="font-thin h4">Your products</div>
             </div>
-            <div class="nav-tabs-alt">
-                <ul class="nav nav-tabs nav-justified">
-                    <li class="active">
-                        <a data-target="#tab-1" role="tab" data-toggle="tab">All</a>
-                    </li>
-                    <li >
-                        <a data-target="#tab-2" role="tab" data-toggle="tab">Promote</a>
-                    </li>
-                    <li >
-                        <a data-target="#tab-3" role="tab" data-toggle="tab">Cross</a>
-                    </li>
-                </ul>
-            </div>
+
             <div class="row-row">
                 <div class="cell scrollable hover">
                     <div class="cell-inner">
                         <div class="tab-content">
                             <div class="tab-pane active" id="tab-1">
-                                <ul style="list-style: none; padding: 0px">
+                                <ul style="list-style: none; padding: 0px" id="productsList">
                                     <li>
                                         <a href="#" style="display: block; padding: 8px 10px; background-color: #dee5e7; border-bottom: 1px solid #dee5e7">
                                             <img src="img/a0.jpg" class="thumb-sm img-circle">
@@ -64,27 +53,33 @@
                 <div class="cell">
                     <div class="cell-inner">
                         <div class="wrapper-md">
-
+                            <form role="form" id="adminForm">
+                                <input type="submit" id="submitbutton" style="display: none">
                             <div class="col-sm-6">
                                 <div class="panel panel-default">
                                     <div class="panel-heading font-bold">Information</div>
                                     <div class="panel-body">
-                                        <form role="form">
+                                            <input type="hidden" name="id" id="id" value="">
                                             <div class="form-group">
                                                 <label>WIX product url</label>
-                                                <input type="text" class="form-control" placeholder="Enter email">
+                                                <input type="text" class="form-control" placeholder="Enter you product url" name="productUrl" id="productUrl" required>
                                             </div>
                                             <div class="form-group">
                                                 <label>Category</label>
-                                                <select class="form-control"></select>
+                                                <select class="form-control" name="category" id="category" placeholder="Select category of you product" required>
+                                                    <option>test</option>
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <label>Country</label>
-                                                <select class="form-control"></select>
+                                                <select class="form-control" name="country" id="country" placeholder="Your country" required>
+                                                    <option>test</option>
+                                                </select>
                                             </div>
 
-                                            <button type="submit" class="btn btn-success">Save</button>
-                                        </form>
+                                            <button type="submit" class="btn btn-success save_button">Save</button>
+                                            <button type="submit" class="btn btn-danger delete_button">Delete</button>
+
                                     </div>
                                 </div>
                             </div>
@@ -93,22 +88,23 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading font-bold">Product description</div>
                                     <div class="panel-body">
-                                        <form role="form">
+
                                             <div class="form-group">
                                                 <label>Title</label>
-                                                <input type="text" class="form-control" placeholder="Enter email">
+                                                <input type="text" class="form-control" placeholder="Enter product title" name="title" id="title" required>
                                             </div>
                                             <div class="form-group">
                                                 <label>Image url</label>
-                                                <input type="text" class="form-control" placeholder="Enter email">
+                                                <input type="text" class="form-control" placeholder="Enter product image" name="productImage" id="productImage" required>
                                             </div>
                                             <div class="form-group">
                                                 <label>Price</label>
-                                                <input type="text" class="form-control" placeholder="Enter email">
+                                                <input type="text" class="form-control" placeholder="Enter product price" name="productPrice" id="productPrice" required>
                                             </div>
 
-                                            <button type="submit" class="btn btn-success">Save</button>
-                                        </form>
+                                            <button type="submit" class="btn btn-success save_button">Save</button>
+                                            <button type="submit" class="btn btn-danger delete_button">Delete</button>
+
                                     </div>
                                 </div>
                             </div>
@@ -116,25 +112,26 @@
                             <div class="col-sm-6">
                                 <div class="panel panel-default">
                                     <div class="panel-heading font-bold">
-                                        <span>Promoting</span>
+                                        <span>Banners selling</span>
                                         <label class="i-switch bg-info m-t-xs m-r" style="float: right; position: relative; top: -4px;">
-                                            <input type="checkbox" checked="">
+                                            <input type="checkbox" checked="" name="isBannerSellingEnabled" id="isBannerSellingEnabled" value="true">
                                             <i></i>
                                         </label>
                                     </div>
                                     <div class="panel-body">
-                                        <form role="form">
+
                                             <div class="form-group">
                                                 <label>Click price</label>
-                                                <input type="text" class="form-control" placeholder="Enter email">
+                                                <input type="text" class="form-control" placeholder="Enter your price for click" name="clickPrice" id="clickPrice" required>
                                             </div>
                                             <div class="form-group">
-                                                <label>Campaign price</label>
-                                                <input type="text" class="form-control" placeholder="Enter email">
+                                                <label>Campaign budget</label>
+                                                <input type="text" class="form-control" placeholder="Enter your campaign budget" name="campaignBudget" id="campaignBudget" required>
                                             </div>
 
-                                            <button type="submit" class="btn btn-success">Save</button>
-                                        </form>
+                                            <button type="submit" class="btn btn-success save_button">Save</button>
+                                            <button type="submit" class="btn btn-danger delete_button">Delete</button>
+
                                     </div>
                                 </div>
                             </div>
@@ -144,12 +141,12 @@
                                     <div class="panel-heading font-bold">
                                         <span>Cross sale</span>
                                         <label class="i-switch bg-info m-t-xs m-r" style="float: right; position: relative; top: -4px;">
-                                            <input type="checkbox" checked="">
+                                            <input type="checkbox" checked="" name="isCrossSellEnabled" id="isCrossSellEnabled" value="true">
                                             <i></i>
                                         </label>
                                     </div>
                                     <div class="panel-body">
-                                        <form role="form">
+
                                             <p>
                                                 About cross sale
                                             </p>
@@ -161,8 +158,9 @@
                                                 <textarea class="form-control" disabled></textarea>
                                             </div>
 
-                                            <button type="submit" class="btn btn-success">Save</button>
-                                        </form>
+                                            <button type="submit" class="btn btn-success save_button">Save</button>
+                                            <button type="submit" class="btn btn-danger delete_button">Delete</button>
+
                                     </div>
                                 </div>
                             </div>
@@ -274,12 +272,23 @@
                                     </div>
                                 </div>
                             </div>
-
+                            </form>
                         </div>
                     </div>
+
                 </div>
+
             </div>
         </div>
     </div>
+    <script src="/assets/js/adminpage.js"></script>
+    <style>
+        .selected_product {
+            background-color: #dee5e7!important;
+        }
+        #productsList li:hover {
+            background-color: #ebebeb;
+        }
+    </style>
 
 }
