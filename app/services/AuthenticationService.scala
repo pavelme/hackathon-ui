@@ -7,13 +7,11 @@ import scala.concurrent.Future
 object AuthenticationService extends HttpClient {
 
   def authenticate(login: String, password: String): Future[Option[String]] = {
-    //to do: get token
-    Future.successful(Some("sometoken"))
+    Future.successful(signUp(login: String, password: String))
   }
 
   def register(login: String, password: String): Future[Option[String]] = {
-    //to do: get token
-    Future.successful(Some("sometoken"))
+    Future.successful(signIn(login, password))
   }
 
 }
