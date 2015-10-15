@@ -306,6 +306,25 @@ function renderCountries() {
     })
 }
 
+function loadProductInfo(url) {
+    $.ajax({
+        url: "http://localhost:20000/v1/syndication/wix-stores/fetch-product-info/" + window.btoa(url),
+        type: "GET",
+        contentType: "application/json",
+        beforeSend: function (request)
+        {
+            request.setRequestHeader("Token", $('#token').val());
+        },
+        success: function(result) {
+            $('#title').val(result.name);
+            if(result.images.length > 0) {
+                $('#productImage').val(result.images[0]);
+            }
+            $('#productPrice').val(result.price);
+        }
+    })
+}
+
 $(function() {
 
     renderCountries();
@@ -339,6 +358,10 @@ $(function() {
             updateProduct()
         }
     });
+
+    $('#productUrl').change(function() {
+        loadProductInfo($('#productUrl').val());
+    })
 
     $('.save_button').click(function(e) {
         e.preventDefault();
