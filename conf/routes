@@ -6,3 +6,8 @@
 GET     /                                       controllers.ProductsController.products
 GET     /addProduct                             controllers.ProductsController.sendProductUrl
 GET     /addProduct2                            controllers.ProductsController.getProducts
+
+GET         /auth/login         controllers.AuthController.login
+POST        /auth/login        controllers.AuthController.signIn
+
+GET  /assets/*file        controllers.Assets.at(path="/public", file)
