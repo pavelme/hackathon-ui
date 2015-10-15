@@ -6,7 +6,7 @@ import play.api.data.Forms._
 import play.api.i18n.Messages.Implicits._
 import play.api.mvc.{Action, Controller}
 
-object ProductsController extends BaseController {
+object ProductsController extends HttpClient with Controller {
 
   def products = Action {
 //    Ok(views.html.Products.products())
