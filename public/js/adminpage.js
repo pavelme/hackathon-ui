@@ -44,6 +44,9 @@ function updateProduct() {
         success: function(result) {
             renderProduct(result);
             showProducts();
+            $('#testPlot1').parents('.col-sm-6').hide();
+            $('#testPlot2').parents('.col-sm-6').hide();
+            $('#testPlot').parents('.col-sm-12').hide();
         }
     })
 }
