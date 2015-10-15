@@ -154,4 +154,6 @@ $(function() {
         deleteProduct($('#id').val());
     });
 
+
+    $('#productsMenu').addClass("active");
 });
