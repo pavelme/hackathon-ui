@@ -4,3 +4,5 @@
 
 # Home page
 GET     /                                       controllers.ProductsController.products
+GET     /addProduct                             controllers.ProductsController.sendProductUrl
+GET     /addProduct2                            controllers.ProductsController.getProducts

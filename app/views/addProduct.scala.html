@@ -1,0 +1,18 @@
+@(redirectionForm: Form[String])
+
+@import helper._
+@import play.api.Play.current
+@import play.api.i18n.Messages.Implicits._
+
+
+@main("Todo list") {
+    <h2>Add a new task</h2>
+    @form(routes.ProductsController.getProducts) {
+
+        @inputText(redirectionForm("Product url"))
+
+        <input type="submit" value="Submit">
+
+    }
+
+}
