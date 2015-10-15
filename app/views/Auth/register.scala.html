@@ -1,0 +1,26 @@
+@()(implicit request: Request[_])
+
+@wrapper {
+    <div class="app app-header-fixed ">
+        <div class="container w-xxl w-auto-xs">
+            <div class="m-b-lg" style="text-align: center">
+                <img src="/assets/img/logo.png" style="width: 200px; margin-bottom: 30px">
+                <form name="form" class="form-validation" method="POST">
+                    <div class="list-group list-group-sm">
+                        <div class="list-group-item">
+                            <input type="text" placeholder="Username" class="form-control no-border" name="username" required>
+                        </div>
+                        <div class="list-group-item">
+                            <input type="email" placeholder="Email" class="form-control no-border" name="email" required>
+                        </div>
+                        <div class="list-group-item">
+                            <input type="password" placeholder="Password" class="form-control no-border" name="password" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-lg btn-primary btn-block">Sign up</button>
+                    <a href="@routes.AuthController.login()" class="btn btn-lg btn-default btn-block">I am already a user</a>
+                </form>
+            </div>
+        </div>
+    </div>
+}

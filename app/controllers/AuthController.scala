@@ -11,8 +11,12 @@ import scala.concurrent.Future
 
 object AuthController extends Controller {
 
-  def login() = Action {
+  def login() = Action { implicit request =>
     Ok(views.html.Auth.login())
+  }
+
+  def register() = Action { implicit request =>
+    Ok(views.html.Auth.register())
   }
 
   def loginForm = Form(

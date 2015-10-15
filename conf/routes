@@ -10,5 +10,6 @@ GET     /products-test                          controllers.ProductsController.p
 
 GET         /auth/login         controllers.AuthController.login
 POST        /auth/login        controllers.AuthController.signIn
+GET         /auth/register         controllers.AuthController.register
 
 GET  /assets/*file        controllers.Assets.at(path="/public", file)
