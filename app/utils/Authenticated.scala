@@ -12,7 +12,7 @@ object Authenticated extends ActionBuilder[AuthenticatedRequest] {
   def invokeBlock[A](request: Request[A], block: (AuthenticatedRequest[A]) => Future[Result]) = {
       request.cookies.get("token").map { tokenCookie =>
         // todo: get user by token
-        block(new AuthenticatedRequest(User(0, "", "", 0, 0), request))
+        block(new AuthenticatedRequest(User(0, "", "", 0, 0, "mytoken"), request))
       }.getOrElse {
         Future.successful(Results.Redirect("/auth/login"))
       }
