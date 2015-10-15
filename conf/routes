@@ -6,3 +6,4 @@
 GET     /                                       controllers.ProductsController.products
 GET     /addProduct                             controllers.ProductsController.sendProductUrl
 GET     /addProduct2                            controllers.ProductsController.getProducts
+GET     /products-test                          controllers.ProductsController.productsTest
