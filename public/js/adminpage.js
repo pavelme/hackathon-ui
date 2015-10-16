@@ -270,6 +270,7 @@ function renderProduct(product) {
         } else {
             $('#' + key).val(product[key]);
         }
+        generateUrl();
     }
 }
 
@@ -287,6 +288,7 @@ function renderCategories() {
             for(var i in result) {
                 $('#category').append("<option>" + result[i] + "</option>");
             }
+            generateUrl();
         }
     })
 }
@@ -305,6 +307,7 @@ function renderCountries() {
             for(var i in result) {
                 $('#country').append("<option>" + result[i] + "</option>");
             }
+            generateUrl();
         }
     })
 }
@@ -326,6 +329,10 @@ function loadProductInfo(url) {
             $('#productPrice').val(result.price);
         }
     })
+}
+
+function generateUrl() {
+    $('#url').val("http://crossell.com:20000/v1/advert/get-cross-sell-products/" + $('#category').val() + "/" + $('#country').val() + "?userId=" + $('#userId').val())
 }
 
 $(function() {
