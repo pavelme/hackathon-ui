@@ -263,6 +263,7 @@ function renderViewClickGraph(id) {
 }
 
 function renderProduct(product) {
+    $('.cool-block').hide();
     $('#adminForm').show();
     for(var key in product) {
         if(key == "isBannerSellingEnabled" || key == "isCrossSellEnabled") {
@@ -397,4 +398,9 @@ $(function() {
     });
 
     $('#productsMenu').addClass("active");
+
+    $('#importButton').click(function(e) {
+        e.preventDefault();
+        $('#addProduct').click();
+    })
 });
