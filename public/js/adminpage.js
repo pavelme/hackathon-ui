@@ -364,6 +364,9 @@ $(function() {
             isCrossSellEnabled: ""
         };
         $('.selected_product').removeClass('selected_product');
+        $('#testPlot').parents('.col-sm-12').hide();
+        $('#testPlot1').parents('.col-sm-6').hide();
+        $('#testPlot2').parents('.col-sm-6').hide();
         renderProduct(product)
     });
 
