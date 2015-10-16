@@ -50,4 +50,6 @@ $(function() {
     $('#category').change(function(e) {
         generateUrl();
     })
+
+    $('#promotingMenu').addClass("active");
 })
