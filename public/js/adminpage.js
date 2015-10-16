@@ -311,6 +311,10 @@ function renderCountries() {
             for(var i in result) {
                 $('#country').append("<option>" + result[i] + "</option>");
             }
+            $('#countryCross').empty();
+            for(var i in result) {
+                $('#countryCross').append("<option>" + result[i] + "</option>");
+            }
             generateUrl();
         }
     })
@@ -336,7 +340,7 @@ function loadProductInfo(url) {
 }
 
 function generateUrl() {
-    $('#url').val("http://crossell.com:20000/v1/advert/get-cross-sell-products/" + $('#categoryCross').val() + "/" + $('#country').val() + "?userId=" + $('#userId').val())
+    $('#url').val("http://crossell.com:20000/v1/advert/get-cross-sell-products/" + $('#categoryCross').val() + "/" + $('#countryCross').val() + "?userId=" + $('#userId').val())
 }
 
 $(function() {
@@ -346,7 +350,7 @@ $(function() {
     showProducts();
 
     $('#categoryCross').change(generateUrl);
-    $('#country').change(generateUrl);
+    $('#countryCross').change(generateUrl);
 
     $('#addProduct').click(function (e) {
         e.preventDefault();
