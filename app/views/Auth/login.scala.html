@@ -5,7 +5,7 @@
         <div class="container w-xxl w-auto-xs">
             <div class="m-b-lg" style="text-align: center">
                 <img src="/assets/img/logo.png" style="width: 200px;">
-                <form name="form" class="form-validation" method="POST">
+                <form name="form" class="form-validation" method="POST" action="@routes.AuthController.signIn()">
                     <div class="text-danger wrapper text-center" style="display: block">
                         @request.flash.get("error").map {
                             case "empty_fields" => { Please, enter your login and password }
