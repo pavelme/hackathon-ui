@@ -37,7 +37,7 @@ function renderCountries() {
 }
 
 function generateUrl() {
-    $('#url').val("http://crossell.com:20000/v1/advert/get-cross-sell-products/" + $('#category').val() + "/" + $('#country').val() + "?sellerId=" + $('#userId').val())
+    $('#url').text("http://crossell.com:20000/v1/advert/get-cross-sell-products/" + $('#category').val() + "/" + $('#country').val() + "?sellerId=" + $('#userId').val())
 }
 
 $(function() {

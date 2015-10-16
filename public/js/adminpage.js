@@ -341,7 +341,7 @@ function loadProductInfo(url) {
 }
 
 function generateUrl() {
-    $('#url').val("http://crossell.com:20000/v1/advert/get-cross-sell-products/" + $('#categoryCross').val() + "/" + $('#countryCross').val() + "?userId=" + $('#userId').val())
+    $('#url').text("http://crossell.com:20000/v1/advert/get-cross-sell-products/" + $('#categoryCross').val() + "/" + $('#countryCross').val() + "?userId=" + $('#userId').val())
 }
 
 $(function() {
